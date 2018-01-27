@@ -22,6 +22,7 @@ public class Allergies extends AppCompatActivity {
         final Button submitA = (Button) findViewById(R.id.submitAllergy);
         final EditText allergySubmitted = (EditText) findViewById(R.id.enterAllergy);
 <<<<<<< HEAD
+<<<<<<< HEAD
         FileOutputStream out = new FileOutputStream("AllergyList.txt");
         FileInputStream in = new FileInputStream("AllergyList.txt");
 
@@ -39,6 +40,8 @@ public class Allergies extends AppCompatActivity {
         listAllergiesAdapter fixedAdapter = new listAllergiesAdapter(Allergies.this,fixedList);
         ListView listFixed = (ListView) findViewById(R.id.fixedlist);
         listFixed.setAdapter(fixedAdapter);
+=======
+>>>>>>> 4bebcc91e96b67fcb960a98b921264b7b9a8b12e
         final ArrayList<listAllergies> allergiesList = new ArrayList<>();
 
         int lengthOfFood, offset;
