@@ -22,7 +22,6 @@ public class Allergies extends AppCompatActivity {
         final Button submitA = (Button) findViewById(R.id.submitAllergy);
         final EditText allergySubmitted = (EditText) findViewById(R.id.enterAllergy);
 <<<<<<< HEAD
-<<<<<<< HEAD
         FileOutputStream out = new FileOutputStream("AllergyList.txt");
         FileInputStream in = new FileInputStream("AllergyList.txt");
 
