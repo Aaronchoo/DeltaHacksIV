@@ -23,16 +23,12 @@ public class Allergies extends AppCompatActivity {
 
         final Button submitA = (Button) findViewById(R.id.submitAllergy);
         final EditText allergySubmitted = (EditText) findViewById(R.id.enterAllergy);
-<<<<<<< HEAD
-=======
         FileOutputStream out = new FileOutputStream("AllergyList.txt");
         FileInputStream in = new FileInputStream("AllergyList.txt");
->>>>>>> 5059f2e2145730c8e2dbf8266f63a56ae4dc7735
 
         final ArrayList<listAllergies> allergiesList = new ArrayList<>();
 
-
-
+        
         submitA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
