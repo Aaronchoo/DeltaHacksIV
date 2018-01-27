@@ -21,26 +21,9 @@ public class Allergies extends AppCompatActivity {
 
         final Button submitA = (Button) findViewById(R.id.submitAllergy);
         final EditText allergySubmitted = (EditText) findViewById(R.id.enterAllergy);
-<<<<<<< HEAD
         FileOutputStream out = new FileOutputStream("AllergyList.txt");
         FileInputStream in = new FileInputStream("AllergyList.txt");
 
-=======
-        final ArrayList<listAllergies> fixedList = new ArrayList<>();
-        fixedList.add(new listAllergies("Peanuts"));
-        fixedList.add(new listAllergies("Eggs"));
-        fixedList.add(new listAllergies("Milk"));
-        fixedList.add(new listAllergies("Shell Fish"));
-        fixedList.add(new listAllergies("Tofu"));
-        fixedList.add(new listAllergies("Food#1"));
-        fixedList.add(new listAllergies("Peanuts#2"));
-        fixedList.add(new listAllergies("Peanuts#3"));
-        fixedList.add(new listAllergies("Peanuts#4"));
-        listAllergiesAdapter fixedAdapter = new listAllergiesAdapter(Allergies.this,fixedList);
-        ListView listFixed = (ListView) findViewById(R.id.fixedlist);
-        listFixed.setAdapter(fixedAdapter);
-=======
->>>>>>> 4bebcc91e96b67fcb960a98b921264b7b9a8b12e
         final ArrayList<listAllergies> allergiesList = new ArrayList<>();
 
         int lengthOfFood, offset;
