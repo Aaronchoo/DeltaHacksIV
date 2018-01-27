@@ -22,13 +22,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button choosingChoice = (Button) findViewById(R.id.choosing_names);
-        choosingChoice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent startChoices = new Intent(MainActivity.this, NameActivity.class);
-                startActivity(startChoices);
-            }
-        });
+
     }
 }
