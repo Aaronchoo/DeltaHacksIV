@@ -39,7 +39,6 @@ public class Allergies extends AppCompatActivity {
         listAllergiesAdapter fixedAdapter = new listAllergiesAdapter(Allergies.this,fixedList);
         ListView listFixed = (ListView) findViewById(R.id.fixedlist);
         listFixed.setAdapter(fixedAdapter);
->>>>>>> 12e185ab1623aaed07f81b0f51675b6dd1496877
         final ArrayList<listAllergies> allergiesList = new ArrayList<>();
 
         int lengthOfFood, offset;
