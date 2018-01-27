@@ -21,10 +21,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(openAllergy);
             }
         });
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 124e8db51b944fa8b554d479436facd33b54123a
     }
 }
