@@ -11,21 +11,41 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:padding="5dp">
 
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/enterAllergy"/>
+            android:id="@+id/enterAllergy"
+            android:layout_weight="5"/>
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/submitAllergy"/>
+            android:id="@+id/submitAllergy"
+            android:layout_weight="1"/>
     </LinearLayout>
-
+    <TextView
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="COMMON ALLERGIES"/>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fixedlist"
+        android:drawSelectorOnTop="true"
+        android:layout_weight="3"/>
+    <TextView
+        android:textStyle="bold"
+        android:paddingTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MY ALLERGIES"/>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/list"
-        android:drawSelectorOnTop="true"/>
+        android:drawSelectorOnTop="true"
+        android:layout_weight="3"/>
 </LinearLayout>
