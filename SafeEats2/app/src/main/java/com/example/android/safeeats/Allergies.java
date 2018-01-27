@@ -26,15 +26,24 @@ public class Allergies extends AppCompatActivity {
         final Button submitA = (Button) findViewById(R.id.submitAllergy);
         final EditText allergySubmitted = (EditText) findViewById(R.id.enterAllergy);
 
-        String FILENAME = "AllergyList";
-        final FileOutputStream out = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-        FileInputStream in = openFileInput(FILENAME);
-
         final ArrayList<listAllergies> allergiesList = new ArrayList<>();
 
-        Scanner sc = new Scanner(FILENAME);
+//        File file = new File(context.getFilesDir(), "AllergyList");
+        File directory;
+        if (filename.isEmpty()) {
+            directory = getFilesDir();
+        }
+        else {
+            directory = getDir(filename, MODE_PRIVATE);
+        }
+        File[] files = directory.listFiles();
+
+        final FileOutputStream out = openFileOutput(filename, Context.MODE_PRIVATE);
+
+        FileInputStream in = openFileInput(filename);
+        Scanner s = new Scanner(in);
         while (sc.hasNext()) {
-            allergiesList.add(new listAllergies(sc.next()));
+            allergiesList.add(new listAllergies(s.next()));
         }
 //        int offset = 0, c;
 //        String temp = "";
