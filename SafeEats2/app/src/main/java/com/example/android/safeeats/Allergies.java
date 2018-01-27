@@ -28,7 +28,14 @@ public class Allergies extends AppCompatActivity {
 
         final ArrayList<listAllergies> allergiesList = new ArrayList<>();
 
-        
+        int lengthOfFood, offset;
+        while ((c = in.read()) != -1) {
+            in.read(lengthOfFood, offset, 1);
+            offset++;
+            allergiesList.add(new listAllergies(in.read(, offset, lengthOfFood)));
+            offset += lengthOfFood;
+        }
+
         submitA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,7 +44,8 @@ public class Allergies extends AppCompatActivity {
                 }
                 else{
 
-
+                    out.write(allergySubmitted.getText().toString().getBytes().length);
+                    out.write(allergySubmitted.getText().toString().getBytes());
                     allergiesList.add(new listAllergies(allergySubmitted.getText().toString()));
                     allergySubmitted.setText("");
                     listAllergiesAdapter listAdapter = new listAllergiesAdapter(Allergies.this,allergiesList);
