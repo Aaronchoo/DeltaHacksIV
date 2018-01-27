@@ -13,12 +13,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        Button allergy = (Button) findViewById(R.id.alle);
-        allergy.setOnClickListener(new View.OnClickListener() {
+        final Button openAllergies = (Button) findViewById(R.id.openAllergies);
+        openAllergies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openAllergy = new Intent(MainActivity.this, allergies.class);
+                Intent openAllergy = new Intent(MainActivity.this, Allergies.class);
                 startActivity(openAllergy);
             }
         });
