@@ -1,5 +1,6 @@
 package com.example.android.safeeats;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Allergies extends AppCompatActivity {
 
@@ -23,18 +25,27 @@ public class Allergies extends AppCompatActivity {
 
         final Button submitA = (Button) findViewById(R.id.submitAllergy);
         final EditText allergySubmitted = (EditText) findViewById(R.id.enterAllergy);
-        FileOutputStream out = new FileOutputStream("AllergyList.txt");
-        FileInputStream in = new FileInputStream("AllergyList.txt");
+
+        String FILENAME = "AllergyList";
+        final FileOutputStream out = openFileOutput(FILENAME, Context.MODE_PRIVATE);
+        FileInputStream in = openFileInput(FILENAME);
 
         final ArrayList<listAllergies> allergiesList = new ArrayList<>();
 
-        int lengthOfFood, offset;
-        while ((c = in.read()) != -1) {
-            in.read(lengthOfFood, offset, 1);
-            offset++;
-            allergiesList.add(new listAllergies(in.read(, offset, lengthOfFood)));
-            offset += lengthOfFood;
+        Scanner sc = new Scanner(FILENAME);
+        while (sc.hasNext()) {
+            allergiesList.add(new listAllergies(sc.next()));
         }
+//        int offset = 0, c;
+//        String temp = "";
+//        while ((c = in.read()) != -1) {
+////          in.read();
+////          offset++;
+////          in.read(temp, offset, lengthOfFood);
+////          allergiesList.add(new listAllergies(temp));
+////          offset += lengthOfFood;
+//            allergiesList.add(new listAllergies(in.read()));
+//        }
 
         submitA.setOnClickListener(new View.OnClickListener() {
             @Override
