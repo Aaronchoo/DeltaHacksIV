@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD:SafeEats2/.idea/modules.xml
       <module fileurl="file://$PROJECT_DIR$/SafeEats2.iml" filepath="$PROJECT_DIR$/SafeEats2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/SafeEats.iml" filepath="$PROJECT_DIR$/SafeEats.iml" />
+      <module fileurl="file://C:\Users\Alex Chan\Documents\GitHub\DeltaHacksIV\SafeEats\SafeEats.iml" filepath="C:\Users\Alex Chan\Documents\GitHub\DeltaHacksIV\SafeEats\SafeEats.iml" />
+      <module fileurl="file://C:\Users\Alex Chan\Documents\GitHub\DeltaHacksIV\SafeEats\app\app.iml" filepath="C:\Users\Alex Chan\Documents\GitHub\DeltaHacksIV\SafeEats\app\app.iml" />
+>>>>>>> 139fec8f02c052533c1995f77b0442166c9bdf79:SafeEats/.idea/modules.xml
     </modules>
   </component>
 </project>
