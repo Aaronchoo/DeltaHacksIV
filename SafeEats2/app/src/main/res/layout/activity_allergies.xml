@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="5dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textAlignment="center"
         android:text="MY ALLERGIES"
         android:textStyle="bold" />
@@ -44,15 +44,22 @@
         android:layout_weight="1"
         android:drawSelectorOnTop="true" />
 
-    <android.support.design.widget.FloatingActionButton
+    <Button
         android:id="@+id/deleteSelected"
-        android:backgroundTint="#808000"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="24dp"
-        android:clickable="true"
-        android:src="@android:drawable/ic_menu_delete" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="DELETE SELECTED"
+        android:textSize="10sp" />
+
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/deleteSelected"-->
+        <!--android:backgroundTint="#808000"-->
+        <!--android:layout_width="56dp"-->
+        <!--android:layout_height="56dp"-->
+        <!--android:layout_gravity="bottom|end"-->
+        <!--android:layout_margin="24dp"-->
+        <!--android:src="@android:drawable/ic_menu_delete" />-->
 
 
 </LinearLayout>
