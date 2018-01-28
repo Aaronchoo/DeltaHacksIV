@@ -28,33 +28,8 @@ public class Allergies extends AppCompatActivity {
 
         final ArrayList<listAllergies> allergiesList = new ArrayList<>();
 
-//        File file = new File(context.getFilesDir(), "AllergyList");
-        File directory;
-        if (filename.isEmpty()) {
-            directory = getFilesDir();
-        }
-        else {
-            directory = getDir(filename, MODE_PRIVATE);
-        }
-        File[] files = directory.listFiles();
-
-        final FileOutputStream out = openFileOutput(filename, Context.MODE_PRIVATE);
-
-        FileInputStream in = openFileInput(filename);
-        Scanner s = new Scanner(in);
-        while (sc.hasNext()) {
-            allergiesList.add(new listAllergies(s.next()));
-        }
-//        int offset = 0, c;
-//        String temp = "";
-//        while ((c = in.read()) != -1) {
-////          in.read();
-////          offset++;
-////          in.read(temp, offset, lengthOfFood);
-////          allergiesList.add(new listAllergies(temp));
-////          offset += lengthOfFood;
-//            allergiesList.add(new listAllergies(in.read()));
-//        }
+        final String filename = "allergicTo";
+        final FileOutputStream out;
 
         submitA.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,9 +38,13 @@ public class Allergies extends AppCompatActivity {
                     Toast.makeText(Allergies.this,"Enter an allergy!", Toast.LENGTH_SHORT);
                 }
                 else{
-
-                    out.write(allergySubmitted.getText().toString().getBytes().length);
-                    out.write(allergySubmitted.getText().toString().getBytes());
+                    try {
+                      out = openFileOutput(filename, Context.MODE_PRIVATE);
+                      out.write(allergySubmitted.getText().toString());
+                      out.close();
+                    } catch (Exception e) {
+                      e.printStackTrace();
+                    }
                     allergiesList.add(new listAllergies(allergySubmitted.getText().toString()));
                     allergySubmitted.setText("");
                     listAllergiesAdapter listAdapter = new listAllergiesAdapter(Allergies.this,allergiesList);
