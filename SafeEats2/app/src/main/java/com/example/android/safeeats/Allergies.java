@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.lang.reflect.Array;
@@ -18,7 +19,6 @@ import java.util.Scanner;
 
 import static android.provider.Telephony.Mms.Part.FILENAME;
 
-public class Allergies extends AppCompatActivity {
 public class Allergies extends AppCompatActivity implements ListAllergiesDelegate {
     final ArrayList<listAllergies> allergiesList = new ArrayList<>();
 
@@ -40,17 +40,29 @@ public class Allergies extends AppCompatActivity implements ListAllergiesDelegat
             @Override
             public void onClick(View view) {
                 if(allergySubmitted.getText().toString().equals("")){
-                    Toast.makeText(Allergies.this,"Enter an allergy!", Toast.LENGTH_SHORT);
+                    Toast.makeText(Allergies.this,"Enter an allergy!", Toast.LENGTH_SHORT).show();
                 }
                 else{
+                    boolean repeated = false;
+                    for(int i =0; i<allergiesList.size(); i++){
+                        if(allergiesList.get(i).getAllergies().toUpperCase().equals(allergySubmitted.getText().toString().toUpperCase())){
+                            repeated = true;
+                            break;
+                        }
 
+                    }
+                    if(repeated) {
+                        Toast.makeText(Allergies.this,"The Allergy is already in the system!", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
 //                    out.write(allergySubmitted.getText().toString().getBytes().length);
-  //                  out.write(allergySubmitted.getText().toString().getBytes());
-                    allergiesList.add(new listAllergies(allergySubmitted.getText().toString(),false));
-                    allergySubmitted.setText("");
-                    listAllergiesAdapter listAdapter = new listAllergiesAdapter(Allergies.this,allergiesList, Allergies.this);
-                    ListView listAlle = (ListView) findViewById(R.id.list);
-                    listAlle.setAdapter(listAdapter);
+                        //                  out.write(allergySubmitted.getText().toString().getBytes());
+                        allergiesList.add(new listAllergies(allergySubmitted.getText().toString(), false));
+                        allergySubmitted.setText("");
+                        listAllergiesAdapter listAdapter = new listAllergiesAdapter(Allergies.this, allergiesList, Allergies.this);
+                        ListView listAlle = (ListView) findViewById(R.id.list);
+                        listAlle.setAdapter(listAdapter);
+                    }
                 }
             }
         });

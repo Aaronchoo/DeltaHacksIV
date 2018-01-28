@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.android.safeeats.Allergies">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,225 +14,40 @@
         android:padding="5dp">
 
         <EditText
+            android:id="@+id/enterAllergy"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/enterAllergy"
-            android:layout_weight="5"/>
+            android:layout_weight="5" />
+
         <Button
+            android:id="@+id/submitAllergy"
             android:layout_width="wrap_content"
-            android:text="Enter"
             android:layout_height="wrap_content"
-            android:id="@+id/submitAllergy"/>
+            android:text="Enter" />
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context="com.example.android.safeeats.Allergies">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="COMMON ALLERGIES"
-                android:textStyle="bold" />
-
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:gravity="center"
-                    android:text="Peanuts"
-                    android:textSize="20dp" />
-
-            </LinearLayout>
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:gravity="center"
-                    android:text="Beef"
-                    android:textSize="20dp" />
-
-            </LinearLayout>
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:gravity="center"
-                    android:text="Water"
-                    android:textSize="20dp" />
-
-            </LinearLayout>
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:gravity="center"
-                    android:text="EGGS"
-                    android:textSize="20dp" />
-
-            </LinearLayout>
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:gravity="center"
-                    android:text="Milk"
-                    android:textSize="20dp" />
-
-            </LinearLayout>
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:gravity="center"
-                    android:text="Cream"
-                    android:textSize="20dp" />
-
-            </LinearLayout>
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:gravity="center"
-                    android:text="Orange"
-                    android:textSize="20dp" />
-
-            </LinearLayout>
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:gravity="center"
-                    android:text="Wheat"
-                    android:textSize="20dp" />
-
-            </LinearLayout>
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:gravity="center"
-                    android:text="Tomatos"
-                    android:textSize="20dp" />
-
-            </LinearLayout>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="DELETE SELECTED"
-                android:textSize="20dp"
-                android:id="@+id/deleteSelected"/>
-
-
-            <TextView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="5dp"
             android:text="MY ALLERGIES"
             android:textStyle="bold" />
-            <ListView
-                android:id="@+id/list"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:drawSelectorOnTop="true" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="5dp"
-                android:text=""
-                android:textStyle="bold" />
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:drawSelectorOnTop="true" />
+    <Button
+        android:id="@+id/deleteSelected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="DELETE SELECTED"
+        android:textSize="10dp" />
 
 
-        </LinearLayout>
 
-    </ScrollView>
 </LinearLayout>
