@@ -17,10 +17,23 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import static android.provider.Telephony.Mms.Part.FILENAME;
 
 public class Allergies extends AppCompatActivity implements ListAllergiesDelegate {
     final ArrayList<listAllergies> allergiesList = new ArrayList<>();
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference ref = database.getReference();
+
+    public void addAllergy(String s) {
+        ref.child("Allergic To").child(s).setValue(1);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +48,15 @@ public class Allergies extends AppCompatActivity implements ListAllergiesDelegat
         //FileInputStream in = openFileInput(FILENAME);
 
         final Button delete = (Button) findViewById(R.id.deleteSelected);
+
+//        ValueEventListener ref = new ValueEventListener() {
+//          @Override
+//          public void onDataChange(DataSnapshot snapshot) {
+//            String allergy = snapshot.getValue(String.class);
+//          }
+//        };
+
+
 
         submitA.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,8 +77,7 @@ public class Allergies extends AppCompatActivity implements ListAllergiesDelegat
                         Toast.makeText(Allergies.this,"The Allergy is already in the system!", Toast.LENGTH_SHORT).show();
                     }
                     else {
-//                    out.write(allergySubmitted.getText().toString().getBytes().length);
-                        //                  out.write(allergySubmitted.getText().toString().getBytes());
+                        addAllergy(allergySubmitted.getText().toString());
                         allergiesList.add(new listAllergies(allergySubmitted.getText().toString(), false));
                         allergySubmitted.setText("");
                         listAllergiesAdapter listAdapter = new listAllergiesAdapter(Allergies.this, allergiesList, Allergies.this);
@@ -75,6 +96,8 @@ public class Allergies extends AppCompatActivity implements ListAllergiesDelegat
                 for(int i =0; i<allergiesList.size(); i++){
                     if(!allergiesList.get(i).getChecked()){
                         newList.add(allergiesList.get(i));
+                    } else {
+                        ref.child("Allergic To").child(allergiesList.get(i).getAllergies()).removeValue();
                     }
                 }
                 allergiesList.clear();
