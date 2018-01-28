@@ -54,11 +54,12 @@
 
     <!--<android.support.design.widget.FloatingActionButton-->
         <!--android:id="@+id/deleteSelected"-->
-        <!--android:backgroundTint="#808000"-->
-        <!--android:layout_width="56dp"-->
-        <!--android:layout_height="56dp"-->
+        <!--android:backgroundTint="#FF0000"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
         <!--android:layout_gravity="bottom|end"-->
         <!--android:layout_margin="24dp"-->
+        <!--android:clickable="true"-->
         <!--android:src="@android:drawable/ic_menu_delete" />-->
 
 
