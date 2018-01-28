@@ -32,9 +32,6 @@ public class Allergies extends AppCompatActivity implements ListAllergiesDelegat
 
         final ArrayList<listAllergies> allergiesList = new ArrayList<>();
 
-        final String filename = "allergicTo";
-        final FileOutputStream out;
-
         final Button delete = (Button) findViewById(R.id.deleteSelected);
 
         submitA.setOnClickListener(new View.OnClickListener() {
@@ -44,13 +41,6 @@ public class Allergies extends AppCompatActivity implements ListAllergiesDelegat
                     Toast.makeText(Allergies.this,"Enter an allergy!", Toast.LENGTH_SHORT);
                 }
                 else{
-                    try {
-                      out = openFileOutput(filename, Context.MODE_PRIVATE);
-                      out.write(allergySubmitted.getText().toString());
-                      out.close();
-                    } catch (Exception e) {
-                      e.printStackTrace();
-                    }
                     allergiesList.add(new listAllergies(allergySubmitted.getText().toString()));
                     allergiesList.add(new listAllergies(allergySubmitted.getText().toString(),false));
                     allergySubmitted.setText("");
