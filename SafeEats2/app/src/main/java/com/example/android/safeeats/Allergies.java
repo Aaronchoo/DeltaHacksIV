@@ -55,7 +55,7 @@ public class Allergies extends AppCompatActivity implements ListAllergiesDelegat
         //FileInputStream in = openFileInput(FILENAME);
 
         final Button delete = (Button) findViewById(R.id.deleteSelected);
-        
+
        ValueEventListener eventListener = new ValueEventListener() {
          @Override
          public void onDataChange(DataSnapshot snapshot) {
