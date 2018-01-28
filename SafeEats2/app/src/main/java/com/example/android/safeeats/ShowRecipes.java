@@ -46,7 +46,6 @@ public class ShowRecipes extends AppCompatActivity {
     private final ObjectMapper objectMapper = new ObjectMapper();
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     String url = "http://food2fork.com/api/search";
-    OkHttpClient client;
    // OkHttpClient client;
 
     @Override

@@ -19,7 +19,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Allergies" />
-        <activity android:name=".ShowRecipes"></activity>
         <activity android:name=".ShowRecipes" />
         <activity android:name=".DisplayChosenFood" />
     </application>
