@@ -7,9 +7,9 @@ package com.example.android.safeeats;
 public class listAllergies {
 
     private String mAllergies;
-    private int mChecked;
+    private boolean mChecked;
 
-    public listAllergies(String allergy, int checked) {
+    public listAllergies(String allergy, boolean checked) {
 
         mAllergies = allergy;
         //0 means not checked and 1 means checked
@@ -17,5 +17,6 @@ public class listAllergies {
     }
 
     public String getAllergies() {return  mAllergies;}
-    public int getChecked() {return mChecked;}
+    public boolean getChecked() {return mChecked;}
+    public void setChecked(boolean change){mChecked=change;}
 }

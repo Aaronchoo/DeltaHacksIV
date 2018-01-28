@@ -19,67 +19,36 @@ import java.util.Scanner;
 import static android.provider.Telephony.Mms.Part.FILENAME;
 
 public class Allergies extends AppCompatActivity {
+public class Allergies extends AppCompatActivity implements ListAllergiesDelegate {
+    final ArrayList<listAllergies> allergiesList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_allergies);
-
+      //  String filename ="test";
         final Button submitA = (Button) findViewById(R.id.submitAllergy);
         final EditText allergySubmitted = (EditText) findViewById(R.id.enterAllergy);
 
         //String FILENAME = "AllergyList";
        // final FileOutputStream out = openFileOutput(FILENAME, Context.MODE_PRIVATE);
         //FileInputStream in = openFileInput(FILENAME);
-        final ArrayList<listAllergies> allergiesList = new ArrayList<>();
+
         final Button delete = (Button) findViewById(R.id.deleteSelected);
-        //Scanner sc = new Scanner(FILENAME);
-        //while (sc.hasNext()) {
-         //   allergiesList.add(new listAllergies(sc.next()));
-        //}
-        final ArrayList<listAllergies> allergiesList = new ArrayList<>();
-
-//        File file = new File(context.getFilesDir(), "AllergyList");
-        File directory;
-        if (filename.isEmpty()) {
-            directory = getFilesDir();
-        }
-        else {
-            directory = getDir(filename, MODE_PRIVATE);
-        }
-        File[] files = directory.listFiles();
-
-        final FileOutputStream out = openFileOutput(filename, Context.MODE_PRIVATE);
-
-        FileInputStream in = openFileInput(filename);
-        Scanner s = new Scanner(in);
-        while (sc.hasNext()) {
-            allergiesList.add(new listAllergies(s.next()));
-        }
-//        int offset = 0, c;
-//        String temp = "";
-//        while ((c = in.read()) != -1) {
-////          in.read();
-////          offset++;
-////          in.read(temp, offset, lengthOfFood);
-////          allergiesList.add(new listAllergies(temp));
-////          offset += lengthOfFood;
-//            allergiesList.add(new listAllergies(in.read()));
-//        }
 
         submitA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(allergySubmitted.getText().toString() == ""){
+                if(allergySubmitted.getText().toString().equals("")){
                     Toast.makeText(Allergies.this,"Enter an allergy!", Toast.LENGTH_SHORT);
                 }
                 else{
 
 //                    out.write(allergySubmitted.getText().toString().getBytes().length);
   //                  out.write(allergySubmitted.getText().toString().getBytes());
-                    allergiesList.add(new listAllergies(allergySubmitted.getText().toString(),0));
+                    allergiesList.add(new listAllergies(allergySubmitted.getText().toString(),false));
                     allergySubmitted.setText("");
-                    listAllergiesAdapter listAdapter = new listAllergiesAdapter(Allergies.this,allergiesList);
+                    listAllergiesAdapter listAdapter = new listAllergiesAdapter(Allergies.this,allergiesList, Allergies.this);
                     ListView listAlle = (ListView) findViewById(R.id.list);
                     listAlle.setAdapter(listAdapter);
                 }
@@ -89,10 +58,27 @@ public class Allergies extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                for(int i =0; i<allergiesList.size(); i++){
+                ArrayList<listAllergies> newList = new ArrayList<listAllergies>();
 
+                for(int i =0; i<allergiesList.size(); i++){
+                    if(!allergiesList.get(i).getChecked()){
+                        newList.add(allergiesList.get(i));
+                    }
                 }
+                allergiesList.clear();
+                allergiesList.addAll(newList);
+
+                listAllergiesAdapter listAdapter = new listAllergiesAdapter(Allergies.this,allergiesList, Allergies.this);
+                ListView listAlle = (ListView) findViewById(R.id.list);
+                listAlle.setAdapter(listAdapter);
+
             }
         });
+    }
+
+    @Override
+    public void setChecked(int position, boolean checked) {
+        allergiesList.get(position).setChecked(checked);
+
     }
 }
