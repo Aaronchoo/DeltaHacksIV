@@ -52,6 +52,7 @@ public class ShowRecipes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_recipes);
+        setTitle("Show Recipes!");
         final EditText recieveOrder = (EditText) findViewById(R.id.foodbar);
         final Button submitOrder = (Button) findViewById(R.id.foodSearch);
         final ArrayList<PrefixProducts> finalist = new ArrayList<>();

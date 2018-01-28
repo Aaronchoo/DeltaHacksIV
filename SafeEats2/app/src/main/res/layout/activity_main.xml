@@ -5,20 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFFFFF"
     tools:context="com.example.android.safeeats.MainActivity">
     <ImageView
+        android:paddingTop="35dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@mipmap/safeeat2"/>
+        android:src="@mipmap/logo"/>
+   
     <Button
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#666699"
         android:id="@+id/openAllergies"
+        android:textColor="#FFFFFF"
         android:text="Open Allergy List"/>
     <Button
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#666699"
+        android:textColor="#FFFFFF"
         android:text="Search for Recipes!"
         android:id="@+id/openOptions"/>
 </LinearLayout>

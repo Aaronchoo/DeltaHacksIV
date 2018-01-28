@@ -19,13 +19,17 @@
             android:id="@+id/foodbar"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:hint="Search for food!"
             android:layout_weight="1" />
 
         <Button
             android:id="@+id/foodSearch"
+            android:layout_margin="10dp"
+            android:background="#666699"
+            android:textColor="#FFFFFF"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Enter Food!" />
+            android:text="Enter" />
     </LinearLayout>
 
     <ListView

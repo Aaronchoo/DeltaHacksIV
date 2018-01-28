@@ -46,6 +46,7 @@ public class Allergies extends AppCompatActivity implements ListAllergiesDelegat
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_allergies);
+        setTitle("List of Allergies");
         //  String filename ="test";
         final Button submitA = (Button) findViewById(R.id.submitAllergy);
         final EditText allergySubmitted = (EditText) findViewById(R.id.enterAllergy);

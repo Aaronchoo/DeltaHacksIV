@@ -17,13 +17,16 @@
             android:id="@+id/enterAllergy"
             android:layout_width="0dp"
             android:hint="Add an allergy"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="5" />
 
         <Button
             android:id="@+id/submitAllergy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#666699"
+            android:textColor="#FFFFFF"
             android:text="Enter" />
     </LinearLayout>
 
@@ -31,7 +34,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="5dp"
+        android:paddingTop="15dp"
         android:textSize="20sp"
         android:textAlignment="center"
         android:text="MY ALLERGIES"
@@ -49,6 +52,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_margin="10dp"
+        android:background="#666699"
+        android:textColor="#FFFFFF"
         android:text="DELETE SELECTED"
         android:textSize="10sp" />
 
