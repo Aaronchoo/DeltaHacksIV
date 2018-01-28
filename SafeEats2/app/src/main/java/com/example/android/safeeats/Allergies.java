@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.lang.reflect.Array;
@@ -25,11 +26,13 @@ public class Allergies extends AppCompatActivity implements ListAllergiesDelegat
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_allergies);
-
+        //  String filename ="test";
         final Button submitA = (Button) findViewById(R.id.submitAllergy);
         final EditText allergySubmitted = (EditText) findViewById(R.id.enterAllergy);
 
-        final ArrayList<listAllergies> allergiesList = new ArrayList<>();
+        //String FILENAME = "AllergyList";
+        // final FileOutputStream out = openFileOutput(FILENAME, Context.MODE_PRIVATE);
+        //FileInputStream in = openFileInput(FILENAME);
 
         final Button delete = (Button) findViewById(R.id.deleteSelected);
 
@@ -37,14 +40,29 @@ public class Allergies extends AppCompatActivity implements ListAllergiesDelegat
             @Override
             public void onClick(View view) {
                 if(allergySubmitted.getText().toString().equals("")){
-                    Toast.makeText(Allergies.this,"Enter an allergy!", Toast.LENGTH_SHORT);
+                    Toast.makeText(Allergies.this,"Enter an allergy!", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    allergiesList.add(new listAllergies(allergySubmitted.getText().toString(),false));
-                    allergySubmitted.setText("");
-                    listAllergiesAdapter listAdapter = new listAllergiesAdapter(Allergies.this,allergiesList, Allergies.this);
-                    ListView listAlle = (ListView) findViewById(R.id.list);
-                    listAlle.setAdapter(listAdapter);
+                    boolean repeated = false;
+                    for(int i =0; i<allergiesList.size(); i++){
+                        if(allergiesList.get(i).getAllergies().toUpperCase().equals(allergySubmitted.getText().toString().toUpperCase())){
+                            repeated = true;
+                            break;
+                        }
+
+                    }
+                    if(repeated) {
+                        Toast.makeText(Allergies.this,"The Allergy is already in the system!", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+//                    out.write(allergySubmitted.getText().toString().getBytes().length);
+                        //                  out.write(allergySubmitted.getText().toString().getBytes());
+                        allergiesList.add(new listAllergies(allergySubmitted.getText().toString(), false));
+                        allergySubmitted.setText("");
+                        listAllergiesAdapter listAdapter = new listAllergiesAdapter(Allergies.this, allergiesList, Allergies.this);
+                        ListView listAlle = (ListView) findViewById(R.id.list);
+                        listAlle.setAdapter(listAdapter);
+                    }
                 }
             }
         });
