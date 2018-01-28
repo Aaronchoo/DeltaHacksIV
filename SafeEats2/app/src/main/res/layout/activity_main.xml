@@ -12,5 +12,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/openAllergies"
         android:text="Open Allergy List"/>
-
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/openOptions"/>
 </LinearLayout>

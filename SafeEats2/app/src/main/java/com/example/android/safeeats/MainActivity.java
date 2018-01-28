@@ -22,5 +22,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        final Button openPecipes = (Button) findViewById(R.id.openOptions);
+        openPecipes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openOport = new Intent (MainActivity.this, ShowRecipes.class);
+                startActivity(openOport);
+            }
+        });
+
     }
 }
