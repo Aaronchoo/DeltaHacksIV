@@ -101,9 +101,8 @@ public class ShowRecipes extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PrefixProducts pro = finalist.get(position);
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                Uri.parse(pro.getWebsite());
-                startActivity(i);
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(pro.getWebsite()));
+                startActivity(browserIntent);
             }
         });
     }
