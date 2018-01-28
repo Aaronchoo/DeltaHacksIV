@@ -18,7 +18,6 @@ import java.util.Scanner;
 
 import static android.provider.Telephony.Mms.Part.FILENAME;
 
-public class Allergies extends AppCompatActivity {
 public class Allergies extends AppCompatActivity implements ListAllergiesDelegate {
     final ArrayList<listAllergies> allergiesList = new ArrayList<>();
 
@@ -41,7 +40,6 @@ public class Allergies extends AppCompatActivity implements ListAllergiesDelegat
                     Toast.makeText(Allergies.this,"Enter an allergy!", Toast.LENGTH_SHORT);
                 }
                 else{
-                    allergiesList.add(new listAllergies(allergySubmitted.getText().toString()));
                     allergiesList.add(new listAllergies(allergySubmitted.getText().toString(),false));
                     allergySubmitted.setText("");
                     listAllergiesAdapter listAdapter = new listAllergiesAdapter(Allergies.this,allergiesList, Allergies.this);
