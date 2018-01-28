@@ -135,8 +135,6 @@ public class ShowRecipes extends AppCompatActivity {
 
     }*/
 
-    }
-}
  /*       submitOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
