@@ -30,8 +30,15 @@ public class Allergies extends AppCompatActivity implements ListAllergiesDelegat
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref = database.getReference();
+    DatabaseReference foods = ref.child("Allergic To");
 
     public void addAllergy(String s) {
+//        int listNumber = 0, tryCount = 0;
+//        while (ref.child("Allergic To").child(Integer.toString(tryCount)).getKey() != "-1") {
+//            listNumber++;
+//            tryCount++;
+//        }
+//        ref.child("Allergic To").child(Integer.toString(listNumber)).setValue(s);
         ref.child("Allergic To").child(s).setValue(1);
     }
 
@@ -48,15 +55,40 @@ public class Allergies extends AppCompatActivity implements ListAllergiesDelegat
         //FileInputStream in = openFileInput(FILENAME);
 
         final Button delete = (Button) findViewById(R.id.deleteSelected);
+        
+       ValueEventListener eventListener = new ValueEventListener() {
+         @Override
+         public void onDataChange(DataSnapshot snapshot) {
+             ArrayList<listAllergies> newList = new ArrayList<listAllergies>();
+             String allergy = "";
+             Boolean repeat = false;
+            for (DataSnapshot ds : snapshot.getChildren()) {
+//                repeat = false;
+                allergy = ds.getKey();
+                newList.add(new listAllergies(allergy, false));
+//                for (int i = 0; i < allergiesList.size(); i++) {
+//                    if (allergiesList.get(i).getAllergies().toUpperCase().equals(allergy.toUpperCase())) {
+//                        repeat = true;
+//                    }
+//                }
+//                if (allergy != "" && !repeat) {
+//                    allergiesList.add(new listAllergies(allergy, false));
+//                }
+                allergiesList.clear();
+                allergiesList.addAll(newList);
 
-//        ValueEventListener ref = new ValueEventListener() {
-//          @Override
-//          public void onDataChange(DataSnapshot snapshot) {
-//            String allergy = snapshot.getValue(String.class);
-//          }
-//        };
+                listAllergiesAdapter listAdapter = new listAllergiesAdapter(Allergies.this,allergiesList, Allergies.this);
+                ListView listAlle = (ListView) findViewById(R.id.list);
+                listAlle.setAdapter(listAdapter);
+            }
+         }
 
-
+         @Override
+         public void onCancelled(DatabaseError databaseError) {
+           Toast.makeText(Allergies.this, "Failed", Toast.LENGTH_SHORT).show();
+         }
+       };
+       foods.addValueEventListener(eventListener);
 
         submitA.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,21 +123,21 @@ public class Allergies extends AppCompatActivity implements ListAllergiesDelegat
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<listAllergies> newList = new ArrayList<listAllergies>();
+//                ArrayList<listAllergies> newList = new ArrayList<listAllergies>();
 
                 for(int i =0; i<allergiesList.size(); i++){
-                    if(!allergiesList.get(i).getChecked()){
-                        newList.add(allergiesList.get(i));
-                    } else {
+                    if(allergiesList.get(i).getChecked()){
+//                        newList.add(allergiesList.get(i));
+//                    } else {
                         ref.child("Allergic To").child(allergiesList.get(i).getAllergies()).removeValue();
                     }
                 }
-                allergiesList.clear();
-                allergiesList.addAll(newList);
-
-                listAllergiesAdapter listAdapter = new listAllergiesAdapter(Allergies.this,allergiesList, Allergies.this);
-                ListView listAlle = (ListView) findViewById(R.id.list);
-                listAlle.setAdapter(listAdapter);
+//                allergiesList.clear();
+//                allergiesList.addAll(newList);
+//
+//                listAllergiesAdapter listAdapter = new listAllergiesAdapter(Allergies.this,allergiesList, Allergies.this);
+//                ListView listAlle = (ListView) findViewById(R.id.list);
+//                listAlle.setAdapter(listAdapter);
 
             }
         });
