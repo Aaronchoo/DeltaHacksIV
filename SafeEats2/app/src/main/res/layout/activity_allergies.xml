@@ -16,6 +16,7 @@
         <EditText
             android:id="@+id/enterAllergy"
             android:layout_width="0dp"
+            android:hint="Add an allergy"
             android:layout_height="wrap_content"
             android:layout_weight="5" />
 
